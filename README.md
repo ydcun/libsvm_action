@@ -1,7 +1,8 @@
 # libsvm_action
 
-该库是利用libsvm，进行行为预测的案例库。
+该库是利用[libsvm](http://www.csie.ntu.edu.tw/~cjlin/)进行行为预测的案例库。
 详细完整的介绍了数据从获取到featurs提取到最后的行为预测的完整过程。
+> [系列教程推荐](http://blog.csdn.net/flydreamgg/article/details/4466023)
 
 ## 软件&&设备
 - android手机
@@ -49,15 +50,15 @@
 	plot(accdata2$t_min,pch=20,xlab="accdata",ylab="accvalue",col="red",type="o")
 - 查看不同类型数据数量
 	sqldf("select count(*),act from accdata2 group by act")
-	abline(v=858, col="blue") 
+	abline(v=858, col="blue")
 	sqldf("select count(*),act,position from accdata2 group by act,position")
 	adcount = sqldf("select count(*) count,act,position from accdata2 group by act,position")
 	temp =0;
 	for(c in adcount$count){
  	temp =temp +c;
-	abline(v=temp, col="black") 
+	abline(v=temp, col="black")
 	}
-	
+
 ```R
 优化代码：
 	adcount = sqldf("select count(*) count,act,position from accdata2 group by act,position")
@@ -74,7 +75,7 @@
 	  temp =0;
 	  for(c in adcount$count){
 		temp =temp +c;
-		abline(v=temp, col="black") 
+		abline(v=temp, col="black")
 	  }
 	  abline(v=adcount2[1,1], col="blue")
 	  dev.off()
@@ -96,7 +97,7 @@
 <tr><td>Root relative squared error</td><td>58.61%</td><td>58.9927 %</td><td>58.61%</td></tr>
 <tr><td>Total Number of Instances</td><td>3847</td><td>3847 </td><td>3847</td></tr>
 </table>
-ps: 
+ps:
 	Correctly Classified Instances:正确分类的实例
 	Incorrectly Classified Instances:错误分类的实例
 	Kappa statistic：k=1表明分类器完全与随机分类相异 k=0与随即分类相同 k=-1比随即分类还要差

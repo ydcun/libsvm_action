@@ -9,6 +9,16 @@
 - R v3.3.1 && RStudio v0.99.902
 - weak v3.9
 - eclipse集成开发环境
+- jdk1.8
+- python2.6
+- gp424win32
+
+## 环境配置
+- 将svm文件夹拷贝到系统当前用户目录下如：C:\Users\ydcun-psjs
+- 安装好python2.6后将python 目录添加到环境变量path中
+- gp424win32解压出来来的gnuplot文件夹：如：D:\Program Files\gnuplot\bin\pgnuplot.exe
+- 修改svm\libsvm\tools\grid.py 中
+	self.gnuplot_pathname = r'D:/Program Files/gnuplot/bin/pgnuplot.exe' 替换成自己的目录
 
 ## 训练样本
 

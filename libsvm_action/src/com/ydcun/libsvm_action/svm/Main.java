@@ -69,6 +69,9 @@ public class Main {
 		svm_node p = null;
 		String[] tempNode = null;
 		StringBuffer sb = new StringBuffer();
+		System.out.println("预测结果--- 真实结果-----istrue");
+		int cw =0;
+		int zq = 0;
 		for(int j=0;j<trainTestLineArry.length;j++){
 			trainTestItemArry = trainTestLineArry[j].split(" ");
 			px = new svm_node[sum];
@@ -82,16 +85,18 @@ public class Main {
 			}
 			svm_model model = svm.svm_load_model(dir+"/model");
 			double code = svm.svm_predict(model, px);
-			DateUtil.printNameDate(new Date(),"预测结束");
 			if(trainTestItemArry[0].equals(code+"")){
-				System.out.println("预测结果："+code+" 真实结果:"+trainTestItemArry[0]+" true");
-				sb.append("预测结果："+code+" 真实结果:"+trainTestItemArry[0]+" true");
+				System.out.println(code+"  "+trainTestItemArry[0]+" true");
+				sb.append(code+"  "+trainTestItemArry[0]+" true");
+				zq++;
 			}else{
-				System.err.println("预测结果："+code+" 真实结果:"+trainTestItemArry[0]+" false");
-				sb.append("预测结果："+code+" 真实结果:"+trainTestItemArry[0]+" false");
+				System.err.println(code+"  "+trainTestItemArry[0]+" false");
+				sb.append(code+"  "+trainTestItemArry[0]+" false");
+				cw++;
 			}
 			sb.append(Util.getChangeRow());
 		}
+		System.out.println("预测结束：正确："+zq+" 错误:"+cw);
 		Util.stringToFile(sb.toString(),dir+"/trainTestResult", false);
 		
 	}

@@ -197,7 +197,7 @@ public class Features{
 		}
 		double q = 1 + (length - 1) *0.25;
 		int b = (int)q;
-		double d = q - b;
+		double d = q - b; 
 		double quartile1 = copydata[b-1] + (copydata[b] - copydata[b-1])*d;
 		return quartile1;
 	}

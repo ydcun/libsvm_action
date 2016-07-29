@@ -132,3 +132,23 @@ ps:
 
 #### R语言导出csv文件
 	write.csv(accdata2,file="C:\\Users\\ydcun-psjs\\Desktop\\机器学习\\accdata.csv");
+
+#### R语言读取JSON数据
+1. 安装rjson工具
+	install.packages("rjson")
+	library(rjson)
+2. 读取json文件
+	grades=fromJSON(file = 'd:/20150524.json',  unexpected.escape = "error")
+3. 处理封装json数据
+
+``` R
+min = c()
+max = c()
+mean = c()
+for (n in grades){
+  min = c(min,n$min)
+  max = c(max,n$max)
+  mean = c(mean,n$mean)
+}
+data = data.frame(min,max,mean)
+```

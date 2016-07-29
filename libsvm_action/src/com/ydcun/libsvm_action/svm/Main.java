@@ -61,7 +61,7 @@ public class Main {
 		double upper = Double.parseDouble(tempArr[1]);
 		
 		//定义数据点
-		String trainTest = Util.readFileToString(dir+"/trainTest2");
+		String trainTest = Util.readFileToString(dir+"/trainTest");
 		System.out.println(trainTest);
 		String[] trainTestLineArry = trainTest.split(Util.getChangeRow());
 		String[] trainTestItemArry = null;
@@ -101,7 +101,10 @@ public class Main {
 		
 	}
 	public static void main(String[] args) throws Exception {
-		predict();
+		trainModel();
+//		predict();
+		System.out.println(Main.class.getResource(""));
+		System.out.println(Main.class.getResource("../resource"));
 	}
 
 	
@@ -144,7 +147,7 @@ public class Main {
 			sb.append(Constant.actMapToCode.get(tempItem.getAct()));
 			//最小值
 			sb.append(" "+Constant.FUN_101_MINIMUM_CODE+":"+tempItem.getT_min());
-			//最小值
+			//最大值
 			sb.append(" "+Constant.FUN_102_MAXIMUM_CODE+":"+tempItem.getT_max());
 			//方差 
 			sb.append(" "+Constant.FUN_103_VARIANCE_CODE+":"+tempItem.getT_variance());
